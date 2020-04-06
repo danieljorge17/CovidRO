@@ -1053,6 +1053,9 @@ bool battle_check_sc(struct block_list *src, struct block_list *target, struct s
 
 	if( sc->data[SC_PNEUMA] && (d->flag&(BF_MAGIC|BF_LONG)) == BF_LONG ) {
 		d->dmg_lv = ATK_BLOCK;
+		if(skill_id == 1009) {	
+			skill_blown(src,target,skill_get_blewcount(skill_id,skill_lv),-1,BLOWN_NONE);
+		}
 		return false;
 	}
 	return true;
