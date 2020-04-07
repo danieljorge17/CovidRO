@@ -6123,9 +6123,9 @@ struct Damage battle_calc_magic_attack(struct block_list *src,struct block_list 
 						skillratio += 10 * skill_lv;
 						break;
 					case AL_HOLYLIGHT:
-						skillratio += 25;
+						skillratio += 200;
 						if (sd && sd->sc.data[SC_SPIRIT] && sd->sc.data[SC_SPIRIT]->val2 == SL_PRIEST)
-							skillratio *= 5; //Does 5x damage include bonuses from other skills?
+							skillratio *= 3; //Does 5x damage include bonuses from other skills?
 						break;
 					case AL_RUWACH:
 						skillratio += 45;
