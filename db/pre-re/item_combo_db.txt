@@ -82,7 +82,7 @@
 2390:2749,{ bonus bFlee2,5; }
 2394:2444:2549,{ bonus2 bAddClass,Class_All,5; bonus bMatkRate,5; bonus2 bResEff,Eff_Freeze,10000; bonus2 bSkillHeal2,"AM_POTIONPITCHER",3; bonus2 bSkillHeal2,"AL_HEAL",3; bonus2 bSkillHeal2,"PR_SANCTUARY",3; }
 2399:2553,{ bonus bAgi,5; bonus bFlee,15; }
-2408:2655,{ bonus bBaseAtk,50; bonus2 bAddDefMonster,1196,20; bonus2 bAddDefMonster,1197,20; }
+2408:2655,{ bonus bDef,-20; bonus bFlee,-10; bonus bStr,2; bonus bDex,1; bonus bBaseAtk,50;}
 2424:2528,{ bonus bHPrecovRate,5; bonus bMaxHPrate,10; }
 2425:2529,{ bonus bFlee,10; }
 2425:2530,{ bonus bFlee,10; }
