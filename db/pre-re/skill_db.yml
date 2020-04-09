@@ -13913,11 +13913,11 @@ Body:
     MaxLevel: 10
     Type: Weapon
     TargetType: Attack
-    Range: 2
+    Range: 4
     Hit: Single
     HitCount: 1
     Element: Weapon
-    Knockback: 5
+    Knockback: 4
     CastTime: 1000
     AfterCastActDelay: 1000
     Requires:
