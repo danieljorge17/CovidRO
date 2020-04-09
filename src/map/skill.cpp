@@ -5003,8 +5003,9 @@ int skill_castend_damage_id (struct block_list* src, struct block_list *bl, uint
 				if (!map_check_dir(dir, t_dir) || bl->type == BL_SKILL) {
 #endif
 					status_change_end(src, SC_HIDING, INVALID_TIMER);
-					dir = dir < 4 ? dir+4 : dir-4; // change direction [Celest]
-					unit_setdir(bl,dir);
+					//Next two lines able backstab rotate the enemy
+					//dir = dir < 4 ? dir+4 : dir-4; // change direction [Celest]
+					//unit_setdir(bl,dir);
 #ifdef RENEWAL
 					clif_blown(src);
 #endif

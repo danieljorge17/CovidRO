@@ -1051,9 +1051,10 @@ bool battle_check_sc(struct block_list *src, struct block_list *target, struct s
 		return false;
 	}
 
-	if( sc->data[SC_PNEUMA] && (d->flag&(BF_MAGIC|BF_LONG)) == BF_LONG ) {
+	if( sc->data[SC_PNEUMA] && (d->flag&(BF_MAGIC|BF_LONG)) == BF_LONG ) {	
 		d->dmg_lv = ATK_BLOCK;
-		if(skill_id == 1009) {	
+		
+		if(skill_id == 1009 || skill_id == 518) {	
 			skill_blown(src,target,skill_get_blewcount(skill_id,skill_lv),-1,BLOWN_NONE);
 		}
 		return false;
@@ -3717,9 +3718,9 @@ static int battle_calc_attack_skill_ratio(struct Damage* wd, struct block_list *
 			break;
 		case RG_BACKSTAP:
 			if(sd && sd->status.weapon == W_BOW && battle_config.backstab_bow_penalty)
-				skillratio += (200 + 40 * skill_lv) / 2;
+				skillratio += (400 + 100 * skill_lv) / 2;
 			else
-				skillratio += 200 + 40 * skill_lv;
+				skillratio += 400 + 100 * skill_lv;
 			break;
 		case RG_RAID:
 #ifdef RENEWAL
