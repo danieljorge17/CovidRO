@@ -12603,8 +12603,8 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 				+ pc_checkskill(sd,AM_LEARNINGPOTION)*5
 				+ pc_skillheal_bonus(sd, skill_id);
 
-			potion_hp = potion_hp * (100+i_lv)/100;
-			potion_sp = potion_sp * (100+i_lv)/100;
+			potion_hp = potion_hp * (100+i_lv/2)/100;
+			potion_sp = potion_sp * (100+i_lv/2)/100;
 
 			if(potion_hp > 0 || potion_sp > 0) {
 				i_lv = skill_get_splash(skill_id, skill_lv);
@@ -12622,8 +12622,8 @@ int skill_castend_pos2(struct block_list* src, int x, int y, uint16 skill_id, ui
 			potion_sp = 0;
 			run_script(item->script,0,src->id,0);
 			potion_flag = 0;
-			potion_hp = potion_hp * (100+id)/100;
-			potion_sp = potion_sp * (100+id)/100;
+			potion_hp = potion_hp * (100+id/2)/100;
+			potion_sp = potion_sp * (100+id/2)/100;
 
 			if(potion_hp > 0 || potion_sp > 0) {
 				id = skill_get_splash(skill_id, skill_lv);
