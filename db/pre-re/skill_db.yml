@@ -2500,7 +2500,7 @@ Body:
       Id: Sanctuary
       Layout: -1
       Range: 1
-      Interval: 1000
+      Interval: 500
       Flag:
         NoOverlap: true
         PathCheck: true
