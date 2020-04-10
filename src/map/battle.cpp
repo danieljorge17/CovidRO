@@ -1046,7 +1046,11 @@ bool battle_check_sc(struct block_list *src, struct block_list *target, struct s
 		status_change_end(target, SC_SAFETYWALL, INVALID_TIMER);
 	}
 
-	if (sc->data[SC_NEUTRALBARRIER] && (d->flag&(BF_LONG|BF_MAGIC)) == BF_LONG) {
+	if (sc->data[SC_NEUTRALBARRIER] && ((d->flag&(BF_LONG|BF_MAGIC)) == BF_LONG
+#ifndef RENEWAL
+		|| skill_id == CR_ACIDDEMONSTRATION
+#endif
+		)) {
 		d->dmg_lv = ATK_MISS;
 		return false;
 	}
@@ -6883,8 +6887,11 @@ struct Damage battle_calc_misc_attack(struct block_list *src,struct block_list *
 				md.damage = battle_attr_fix(src, target, md.damage, ELE_NEUTRAL, tstatus->def_ele, tstatus->ele_lv);
 			}
 #else
-			if(tstatus->vit+sstatus->int_) //crash fix
-				md.damage = (int)((int64)7*tstatus->vit*sstatus->int_*sstatus->int_ / (10*(tstatus->vit+sstatus->int_)));
+		case CR_ACIDDEMONSTRATION:
+			if(tstatus->vit+sstatus->int_) {//crash fix
+				md.damage = (int)((int64)7*(tstatus->vit + (short)status_get_def(target))*sstatus->int_*sstatus->int_ / (12*(tstatus->vit+sstatus->int_)));
+				if (md.damage <= 0) md.damage = 100;
+			}
 			else
 				md.damage = 0;
 			if (tsd) md.damage>>=1;
